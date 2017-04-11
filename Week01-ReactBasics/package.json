@@ -1,0 +1,35 @@
+{
+  "name": "react-basics",
+  "version": "1.0.0",
+  "description": "react basics examples",
+  "main": "server.js",
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efuenzalida52/isit322_Fuenzalida_2017.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Elizabeth Fuenzalida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/efuenzalida52/isit322_Fuenzalida_2017/issues"
+  },
+  "homepage": "https://github.com/efuenzalida52/isit322_Fuenzalida_2017#readme"
+}
