@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'whatwg-fetch';
-//import './mocks';
+import logo from './International_Pokémon_logo.svg';
 
 class App extends Component {
     constructor() {
@@ -10,7 +9,8 @@ class App extends Component {
         this.state = {
             file: 'Get Nine Result will be placed here.',
             foo: 'waiting for server',
-            nine: '9',
+            nine: '0',
+            eight: '0',
         };
 
     }
@@ -29,7 +29,11 @@ class App extends Component {
     };
 
     getNine = () => {
-        this.setState({nine: '9'})
+        this.setState({nine: '9'});
+    };
+
+    getEight = () => {
+        this.setState({eight: '8'});
     };
 
     fetch() {
@@ -51,20 +55,6 @@ class App extends Component {
         }
     }
 
-/*    getFoo = () => {
-        const that = this;
-        this.fetch('/api/foo')
-            .then(function (response) {
-                return response.json();
-            })
-        .then(function(json) {
-         console.log('parsed json', json);
-         that.setState(foo => (json));
-         }).catch(function(ex) {
-         console.log('parsing failed', ex);
-         });
-    };*/
-
     getFoo = () => {
         const that = this;
         this.fetch('/api/foo')
@@ -82,23 +72,25 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Welcome to React</h2>
-                </div>
                 <p className="App-intro">
                     state.foo {this.state.foo}
                 </p>
                 <p className="App-intro">
-                    state.foo {this.state.file}
+                    state.file {this.state.file}
                 </p>
                 <p className="App-intro">
-                    state.foo {this.state.nine}
+                    state.nine: {this.state.nine}
+                </p>
+                <p className="App-intro">
+                    state.eight: {this.state.eight}
                 </p>
 
                 <button onClick={this.bar}>Click Me</button>
                 <button className="getFoo" onClick={this.getFoo}>Click Me</button>
                 <button className="getNine" onClick={this.getNine}>Click Me</button>
+                <button className="getEight" onClick={this.getEight}>Click Me</button>
             </div>
         );
     }

@@ -1,26 +1,22 @@
-/*
-/!**
- * Created by bcuser on 4/13/17.
- *!/
-class mocks {
-    fetch() {
-        this.setState({foo: "bar"});
-        return {
-            then: function() {
-                return {
-                    then: function() {
-                        return {
-                            catch: function() {
+var fetch = function(parentThis) {
+    parentThis.setState({
+        foo: 'bar',
+        file: 'api.js'
+    });
 
-                            }
+    return {
+        then: function() {
+            return {
+                then: function() {
+                    return {
+                        catch: function() {
+
                         }
-
                     }
                 }
-
             }
         }
     }
-}
+};
 
-module.export.fetch = fetch;*/
+module.exports.fetch = fetch;
