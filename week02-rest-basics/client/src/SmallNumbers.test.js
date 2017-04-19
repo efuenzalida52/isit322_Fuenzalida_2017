@@ -2,7 +2,7 @@ import React from 'react';
 import SmallNumbers from './components/SmallNumbers';
 import {shallow} from 'enzyme';
 
-describe('My Small NUmbers test', function () {
+describe('My Small Numbers test', function () {
 
     const getLast = (wrapper) => {
         const ninep = wrapper.find('p').last().debug();
@@ -13,12 +13,11 @@ describe('My Small NUmbers test', function () {
         const ninep = wrapper.find('p').first().debug();
         console.log(ninep);
     };
-
+//9
     it('renders button click message for nine', () => {
         const wrapper = shallow(<SmallNumbers />);
         const nineSign = <p className="App-intro">state.nine: 9</p>;
         wrapper.find('button.getNine').simulate('click');
-
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
@@ -29,7 +28,7 @@ describe('My Small NUmbers test', function () {
         console.log(ninep);
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
-
+//8 getLast can go in the same place in any function for debugging
     it('renders button click message for eight', () => {
         const wrapper = shallow(<SmallNumbers />);
         const eightSign = <p className="App-intro">state.eight: 8</p>;
@@ -46,7 +45,7 @@ describe('My Small NUmbers test', function () {
         console.log(eightp);
         expect(wrapper.contains(eightSign)).toEqual(true);
     });
-
+//7
     it('renders button click message for seven', () => {
         const wrapper = shallow(<SmallNumbers />);
         const sevenSign = <p className="App-intro">state.seven: 7</p>;
@@ -117,7 +116,6 @@ describe('My Small NUmbers test', function () {
         const wrapper = shallow(<SmallNumbers />);
         const threeSign = <p className="App-intro">state.three: 3</p>;
         wrapper.find('button.getThree').simulate('click');
-        getLast(wrapper);
         expect(wrapper.contains(threeSign)).toEqual(true);
 
     });
@@ -134,7 +132,6 @@ describe('My Small NUmbers test', function () {
         const wrapper = shallow(<SmallNumbers />);
         const twoSign = <p className="App-intro">state.two: 2</p>;
         wrapper.find('button.getTwo').simulate('click');
-        getLast(wrapper);
         expect(wrapper.contains(twoSign)).toEqual(true);
     });
 
@@ -150,7 +147,6 @@ describe('My Small NUmbers test', function () {
         const wrapper = shallow(<SmallNumbers />);
         const oneSign = <p className="App-intro">state.one: 1</p>;
         wrapper.find('button.getOne').simulate('click');
-        getLast(wrapper);
         expect(wrapper.contains(oneSign)).toEqual(true);
     });
 
