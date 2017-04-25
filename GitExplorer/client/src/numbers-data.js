@@ -1,3 +1,4 @@
+/* eslint-disable */
 var numbersInit = {
     nine: '0',
     eight: '0',
