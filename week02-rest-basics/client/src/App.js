@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './css/App.css';
 import 'whatwg-fetch';
 
 class App extends Component {
@@ -16,9 +16,10 @@ class App extends Component {
         const that = this;
         this.fetch('/api/foo')
             .then(function (response) {
-                console.log('got response');
+                console.log('getone-fetch-one');
                 return response.json();
             }).then(function (json) {
+            console.log('GETONE-FETCH-TWO');
             console.log('parsed json', json);
             that.setState(foo => (json));
         }).catch(function (ex) {

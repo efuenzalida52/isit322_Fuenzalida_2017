@@ -8,7 +8,7 @@ var request = require('request');
 /* GET home page. */
 router.get('/user', function(req, res, next) {
     var options = {
-        url: 'https://api.github.com/users/charliecalvert',
+        url: 'https://api.github.com/users/efuenzalida52',
         headers: {
             'User-Agent': 'request'
         }
