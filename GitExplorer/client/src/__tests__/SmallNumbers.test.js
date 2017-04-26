@@ -26,7 +26,6 @@ describe('My Small Numbers test', function () {
         const wrapper = shallow(<SmallNumbers numbers={numbersInit} />);
         const nineSign = <p className="App-intro">state.nine: 0</p>;
         const ninep = wrapper.find('p').last().debug();
-
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 //8 getLast can go in the same place in any function for debugging
@@ -43,7 +42,6 @@ describe('My Small Numbers test', function () {
         const wrapper = shallow(<SmallNumbers numbers={numbersInit} />);
         const eightSign = <p className="App-intro">state.eight: 0</p>;
         const eightp = wrapper.find('p').last().debug();
-
         expect(wrapper.contains(eightSign)).toEqual(true);
     });
 //7
@@ -71,7 +69,6 @@ describe('My Small Numbers test', function () {
     it('renders initial value of paragraph with state.six', () => {
         const wrapper = shallow(<SmallNumbers numbers={numbersInit} />);
         const sixSign = <p className="App-intro">state.six: 0</p>;
-
         expect(wrapper.contains(sixSign)).toEqual(true);
     });
 
