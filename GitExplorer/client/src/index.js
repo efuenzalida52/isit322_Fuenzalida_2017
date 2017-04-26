@@ -4,17 +4,14 @@ import GetUserInfo from './components/GetUserInfo';
 import './css/index.css';
 import Header from './components/Header';
 import SmallNumbers from './components/SmallNumbers';
-import numbersInit from './numbers-data';
-
-/*var numbersInit = {
-    nine: '0',
-    eight: '0'
-};*/
+import numbersInit from './components/numbers-data';
+import GetFoo from './components/GetFoo';
 
 ReactDOM.render(
     <div>
         <Header/>
         <GetUserInfo />
+        <GetFoo/>
         <SmallNumbers numbers={numbersInit} />
     </div>,
     document.getElementById('root')

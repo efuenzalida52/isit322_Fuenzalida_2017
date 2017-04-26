@@ -9,18 +9,10 @@ describe('My Get User Info Test', function () {
         console.log(ninep);
     };
 
-    it('renders default login data', () => {
-        const wrapper = shallow(<GetUserInfo/>);
-        const nineSign = <p className="App-intro">login:</p>;
-        getFirst(wrapper, 'p');
-        wrapper.find('button.elf').simulate('click');
-        expect(wrapper.contains(nineSign)).toEqual(true);
-    });
-
     it('renders button click message', () => {
         const wrapper = shallow(<GetUserInfo/>);
-        const nineSign = <p className="App-intro">login: Robin</p>;
-        wrapper.find('button.elf').simulate('click');
+        const nineSign = <p className="App-intro">login: Robin Dudette</p>;
+        wrapper.find('button.getUser').simulate('click');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 

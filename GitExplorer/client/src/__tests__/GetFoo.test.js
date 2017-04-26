@@ -1,5 +1,5 @@
 import React from 'react';
-import GetUserInfo from '../components/GetUserInfo';
+import GetFoo from '../components/GetFoo';
 import {shallow} from 'enzyme';
 
 describe('My GetFoo test', function () {
@@ -9,9 +9,9 @@ describe('My GetFoo test', function () {
     });
 
     it('renders button click message', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="App-intro">Nine: 9</p>;
-        wrapper.find('button.elf').simulate('click');
+        const wrapper = shallow(<GetFoo />);
+        const nineSign = <p className="App-intro">state.foo bar</p>;
+        wrapper.find('button.getFoo').simulate('click');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
