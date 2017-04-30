@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import GetUserInfo from "../components/GetUserInfo";
 import { mount } from 'enzyme';
-import ElfTestShow from '../ElfTestShow';
+import Elf from './Elf';
 const elfShow = new ElfTestShow(false);
 jest.mock('whatwg-fetch');
 
