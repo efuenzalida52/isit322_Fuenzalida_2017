@@ -3,6 +3,9 @@ import SmallNumbers from '../components/SmallNumbers';
 import {shallow} from 'enzyme';
 import numbersInit from '../components/numbers-data';
 
+var debug = require('debug')('git-convert');
+debug('this is a test');
+
 describe('My Small Numbers test', function () {
 
     const getLast = (wrapper) => {

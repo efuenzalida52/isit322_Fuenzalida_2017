@@ -6,6 +6,9 @@ import ElfTestShow from '../ElfTestShow';
 const elfShow = new ElfTestShow(false);
 jest.mock('whatwg-fetch');
 
+var debug = require('debug')('git-convert');
+debug('this is a test');
+
 describe('My Get User Info test', function () {
 
     it('renders without crashing', () => {

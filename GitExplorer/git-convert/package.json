@@ -1,0 +1,22 @@
+{
+  "name": "git-convert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/efuenzalida52/isit322_Fuenzalida_2017.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efuenzalida52/isit322_Fuenzalida_2017/issues"
+  },
+  "homepage": "https://github.com/efuenzalida52/isit322_Fuenzalida_2017#readme",
+  "dependencies": {
+    "debug": "^2.6.6"
+  }
+}
