@@ -1,6 +1,18 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import GetUserInfo from "../components/GetUserInfo";
+import { mount } from 'enzyme';
+import ElfTestShow from '../ElfTestShow';
+const elfShow = new ElfTestShow(false);
+jest.mock('whatwg-fetch');
+
+describe('My Get User Info test', function () {
+
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<GetUserInfo />, div);
+    });
+});
 
 describe('My Get User Info Test', function () {
 
@@ -13,6 +25,7 @@ describe('My Get User Info Test', function () {
         const wrapper = shallow(<GetUserInfo/>);
         const nineSign = <p className="App-intro">login: Robin Dudette</p>;
         wrapper.find('button.getUser').simulate('click');
+        getFirst(wrapper);
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
