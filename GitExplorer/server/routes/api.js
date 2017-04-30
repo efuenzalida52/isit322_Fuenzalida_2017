@@ -23,8 +23,8 @@ router.get('/user', function (req, res, next) {
         console.log('body:', body);
         res.send({error: error, response: response, body: body});
     });
-
 });
+
 router.get('/foo', function (request, response, next) {
     var message = {'result': 'success', 'foo': 'bar', 'file': 'api.js'};
     console.log('Foo called on server with message:', message);
