@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
 import GetUserInfo from "../components/GetUserInfo";
-import { mount } from 'enzyme';
-import Elf from './Elf';
+//import {mount} from 'enzyme';
+import ElfTestShow from '../components/ElfTestShow';
 const elfShow = new ElfTestShow(false);
 jest.mock('whatwg-fetch');
 
@@ -19,13 +20,14 @@ describe('My Get User Info test', function () {
 
 describe('My Get User Info Test', function () {
 
-    let getFirst = function(wrapper, element){
-        const ninep = wrapper.find(element).first().debug();/*ninep just for debugging*/
+    let getFirst = function (wrapper, element) {
+        const ninep = wrapper.find(element).first().debug();
+        /*ninep just for debugging*/
         console.log(ninep);
     };
 
     it('renders button click message', () => {
-        const wrapper = shallow(<GetUserInfo/>);
+        const wrapper = shallow(<GetUserInfo />);//mount
         const nineSign = <p className="App-intro">login: Robin Dudette</p>;
         wrapper.find('button.getUser').simulate('click');
         getFirst(wrapper);
