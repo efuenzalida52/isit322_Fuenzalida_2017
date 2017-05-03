@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import GetUserInfo from "../components/GetUserInfo";
 import {mount} from 'enzyme';
 import ElfDebug from '../ElfDebug';
-const elfDebug = new ElfDebug(true);
+const elfDebug = new ElfDebug(false);
 //jest.mock('whatwg-fetch');
 
 describe('My Get User Info test', function () {
