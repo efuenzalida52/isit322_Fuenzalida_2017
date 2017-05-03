@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {shallow} from 'enzyme';
+//import {shallow} from 'enzyme';
 import GetUserInfo from "../components/GetUserInfo";
-//import {mount} from 'enzyme';
-import ElfTestShow from '../components/ElfTestShow';
-const elfShow = new ElfTestShow(false);
-jest.mock('whatwg-fetch');
-
-var debug = require('debug')('git-convert');
-debug('this is a test');
+import {mount} from 'enzyme';
+import ElfDebug from '../ElfDebug';
+const elfDebug = new ElfDebug(true);
+//jest.mock('whatwg-fetch');
 
 describe('My Get User Info test', function () {
 
@@ -27,11 +24,20 @@ describe('My Get User Info Test', function () {
     };
 
     it('renders button click message', () => {
-        const wrapper = shallow(<GetUserInfo />);//mount
+        const wrapper = mount(<GetUserInfo />);
+        const nineSign = <p className="ElfFormParagraph">Robin Dudette</p>;
+        elfDebug.getFirst(wrapper, 'p');
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
+    });
+
+    it('renders default login data', () => {
+        const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className="App-intro">login: Robin Dudette</p>;
-        wrapper.find('button.getUser').simulate('click');
-        getFirst(wrapper);
+        wrapper.find('button#getUser').simulate('click');
+        elfDebug.getAll(wrapper, 'div');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
+
+
 
 });
