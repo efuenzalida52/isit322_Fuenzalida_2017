@@ -5,17 +5,23 @@ export default class ElfDebug {
 
     getFirst(wrapper, element) {
         if (this.showData) {
-            const paragraphData = wrapper.fond(element).first()
+            const paragraphData = wrapper.find(element).first().debug();
             console.log(paragraphData);
         }
+    };
 
-        getLast(wrapper, element)
-        {
-            if (this.showData) {
-                const paragraphData = wrapper.fond(element).Last()
-                console.log(paragraphData);
-            }
+    getLast(wrapper, element) {
+        if (this.showData) {
+            const paragraphData = wrapper.find(element).last().debug();
+            console.log(paragraphData);
         }
-    }
+    };
+
+    getAll(wrapper, element) {
+        if (this.showData) {
+            const paragraphData = wrapper.find(element).debug();
+            console.log(paragraphData);
+        }
+    };
 }
 
