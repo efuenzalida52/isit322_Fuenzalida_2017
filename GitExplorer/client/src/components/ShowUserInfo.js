@@ -17,7 +17,7 @@ class ShowUserInfo extends Component {
         return (
             <div className="ElfFormRow" key={field.id}>
                 <label className="ElfFormLabel" htmlFor={field.id}>{field.label}:</label>
-                <ElfElements {...field} 
+                <ElfElements {...field}
                              value={this.props.gitUser[field.id] || field.sample || ''}
                              onChange={this.props.onChange}
                 />
