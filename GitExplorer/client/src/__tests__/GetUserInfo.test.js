@@ -15,6 +15,14 @@ describe('My Get User Info Test', function () {
     });
 
 
+    it('renders default data', () => {
+        const wrapper = mount(<GetUserInfo />);
+        const nineSign = <p className='ElfFormParagraph' id='avatar_url'>aiunknown</p>;
+        console.log(nineSign);
+        elfDebug.getFirst(wrapper, 'p');
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
+    });
+
     it('renders default login data', () => {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className='ElfFormParagraph' id='login'>login-unknown</p>;

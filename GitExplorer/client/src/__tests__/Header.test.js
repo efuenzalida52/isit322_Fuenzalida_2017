@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../components/ElfHeader';
 import {shallow} from 'enzyme';
 
 var debug = require('debug')('git-convert');
