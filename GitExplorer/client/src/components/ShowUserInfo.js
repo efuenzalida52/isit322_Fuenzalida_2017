@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../css/App.css';
-//import 'whatwg-fetch';
 import ElfLogger from './elf-logger';
 import ElfElements from './ElfElements';
 const logger = new ElfLogger(false);

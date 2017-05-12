@@ -13,22 +13,21 @@ const ElfTestShow = class {
     getFirst(wrapper, element) {
         if (this.showLog) {
             const eightp = wrapper.find(element).first().debug();
-            logger.log("ENZYME TEST GET FIRST:", eightp);
+            logger.log('ENZYME TEST GET FIRST:', eightp);
         }
     }
-
 
     getAll(wrapper, element) {
         if (this.showLog) {
             const eightp = wrapper.find(element).debug();
-            logger.log("ENZYME DEBUG GET ALL:", eightp);
+            logger.log('ENZYME DEBUG GET ALL:', eightp);
         }
     }
 
     getLast(wrapper, element) {
         if (!this.showLog) {
             const eightp = wrapper.find(element).last().debug();
-            logger.log("ENZYME TEST GET LAST:", eightp);
+            logger.log('ENZYME TEST GET LAST:', eightp);
         }
     }
 

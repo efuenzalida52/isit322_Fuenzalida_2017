@@ -15,5 +15,4 @@ describe('My Header test', function () {
         const welcome = <h2>Welcome to React</h2>;
         expect(wrapper.contains(welcome)).toEqual(true);
     });
-
 });

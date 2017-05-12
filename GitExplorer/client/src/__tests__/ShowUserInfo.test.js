@@ -6,11 +6,11 @@ import fieldDefinitions from '../components/field-definitions';
 import ElfDebug from '../ElfDebug';
 const elfDebug = new ElfDebug(false);
 
-describe('Show User Info mount Test', function () {
+describe('Show User Info mount Test', function() {
 
     let bodyData = {};
 
-    beforeEach(function () {
+    beforeEach(function() {
         const tempBody = {};
         for (let value of fieldDefinitions) {
             tempBody[value.id] = value.sample;
@@ -23,7 +23,7 @@ describe('Show User Info mount Test', function () {
         ReactDOM.render(<ShowUserInfo
             fields={fieldDefinitions}
             gitUser={bodyData}
-            onChange={function () {
+            onChange={function() {
             }}
         />, div);
     });
@@ -32,14 +32,11 @@ describe('Show User Info mount Test', function () {
         const wrapper = mount(<ShowUserInfo
             fields={fieldDefinitions}
             gitUser={bodyData}
-            onChange={function () {
+            onChange={function() {
             }}
         />);
-        const nineSign = <p className="ElfFormParagraph" id="login" >login-unknown</p>;
-        //console.log(nineSign);
+        const nineSign = <p className='ElfFormParagraph' id='login'>login-unknown</p>;
         elfDebug.getFirst(wrapper, 'p');
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
-
-
 });

@@ -1,13 +1,10 @@
-/**
- * Created by bcuser on 4/28/17.
- */
 const ElfLogger = class {
 
     constructor(initQuiet) {
         this.display = initQuiet;
     }
 
-    log = (message1, message2='', message3='') => {
+    log = (message1, message2 = '', message3 = '') => {
         if (this.display) {
             console.log(message1, message2, message3);
         }
