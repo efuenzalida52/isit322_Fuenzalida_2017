@@ -95,6 +95,6 @@ I provide a link to the comments, but if you can't find them, just go to your on
 
 My comments are here:
 
-
+https://github.com/efuenzalida52/isit322_Fuenzalida_2017/blob/charlie-props/CharlieComments.md
 
 And also attached, but easier to read through the above link to your repository.
