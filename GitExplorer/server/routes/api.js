@@ -4,9 +4,25 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var GitHub = require('github-api');
+
+let getGitHub = function() {
+    let gh;
+    if (true) {
+        gh = new GitHub({
+            token: process.env.TOKEN
+        });
+    } else {
+        gh = new GitHub({
+            username: 'charliecalvert',
+            password: ''
+        });
+    }
+    return gh;
+};
 
 /* GET home page. */
-router.get('/user', function (req, res, next) {
+router.get('/user', function(req, res, next) {
     var options = {
         url: 'https://api.github.com/users/efuenzalida52',
         headers: {
@@ -14,7 +30,7 @@ router.get('/user', function (req, res, next) {
         }
     };
 
-    request(options, function (error, response, body) {
+    request(options, function(error, response, body) {
         // Print the error if one occurred
         console.log('error:', error);
         // Print the response status code if a response was received
@@ -25,10 +41,65 @@ router.get('/user', function (req, res, next) {
     });
 });
 
-router.get('/foo', function (request, response, next) {
+router.get('/foo', function(request, response, next) {
     var message = {'result': 'success', 'foo': 'bar', 'file': 'api.js'};
     console.log('Foo called on server with message:', message);
     response.send(message);
+});
+
+router.get('/gist-test', function(request, response) {
+    const gh = getGitHub();
+    let gist = gh.getGist(); // not a gist yet
+    gist.create({
+        public: true,
+        description: 'My third gist',
+        files: {
+            'file1.txt': {
+                content: 'Arent three gists great!'
+            }
+        }
+    }).then(function({data}) {
+        // Promises!
+        let createdGist = data;
+        return gist.read();
+    }).then(function({data}) {
+        let retrievedGist = data;
+        console.log('RETRIEVED', retrievedGist);
+        response.status(200).send({'result': retrievedGist});
+        // do interesting things
+    }).catch(function(err) {
+        console.log('rejected!', err, bar);
+        console.log('Bar', bar);
+        response.status(500).send({'result': err});
+    });
+});
+
+router.get('/Notifications', (req, res) => {
+
+    let getGitHub = function() {
+        let gh;
+        if (true) {
+            gh = new GitHub({
+                token: process.env.TOKEN
+            });
+        } else {
+            gh = new GitHub({
+                username: 'charliecalvert',
+                password: ''
+            });
+        }
+        return gh;
+    };
+
+    let me = getGitHub().getUser(); // no user specified defaults to the user for whom credentials were provided
+    me.listNotifications(function(err, notifications) {
+        if (!err) {
+            res.status(200).json(notifications);
+        } else {
+            res.status(500).json(err);
+        }
+    });
+
 });
 
 module.exports = router;

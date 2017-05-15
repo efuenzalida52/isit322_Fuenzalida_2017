@@ -7,7 +7,6 @@ const logger = new ElfLogger(false);
 class ShowUserInfo extends Component {
     constructor(props) {
         super(props);
-        //this.shouldUpdate = true;
         logger.log('ShowUserInfo constructor called.');
         logger.log('ShowUserInfo props.' + JSON.stringify(this.props.userData, null, 4));
     }

@@ -1,6 +1,3 @@
-/**
- * Created by bcuser on 4/28/17.
- */
 /*eslint no-unused-vars: "off" */
 const unknown = 'unknown';
 const PARAGRAPH = 0;
