@@ -10,6 +10,7 @@ let getGitHub = function() {
     let gh;
     if (true) {
         gh = new GitHub({
+            username: 'charliecalvert',
             token: process.env.TOKEN
         });
     } else {
@@ -80,6 +81,7 @@ router.get('/Notifications', (req, res) => {
         let gh;
         if (true) {
             gh = new GitHub({
+                username: 'charliecalvert',
                 token: process.env.TOKEN
             });
         } else {
@@ -91,11 +93,14 @@ router.get('/Notifications', (req, res) => {
         return gh;
     };
 
-    let me = getGitHub().getUser(); // no user specified defaults to the user for whom credentials were provided
+    let gh = getGitHub();
+    const me = gh.getUser();
     me.listNotifications(function(err, notifications) {
         if (!err) {
+            console.log('NOTIFICATION SUCCESS CSC');
             res.status(200).json(notifications);
         } else {
+            console.log('NOTIFICATION ERROR CSC');
             res.status(500).json(err);
         }
     });
