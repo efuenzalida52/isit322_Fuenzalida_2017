@@ -3,8 +3,8 @@
  */
 import React, {Component} from 'react';
 import '../css/App.css';
-import Debug from './elf-logger';
-const logger = new Debug(false);
+import ElfLogger from '../Debug/elf-logger';
+const logger = new ElfLogger(false);
 
 class ElfElements extends Component {
     constructor(props) {

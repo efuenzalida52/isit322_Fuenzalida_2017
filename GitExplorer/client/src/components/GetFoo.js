@@ -14,7 +14,7 @@ class GetFoo extends Component {
 
     getFoo = () => {
         const that = this;
-        fetch('/api/foo')
+        fetch('/foo')
             .then(function (response) {
                 console.log('getone-fetch-one');
                 return response.json();

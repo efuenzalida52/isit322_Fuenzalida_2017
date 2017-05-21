@@ -3,14 +3,13 @@ import '../css/App.css';
 import 'whatwg-fetch';
 import fieldDefinitions from './field-definitions';
 import ElfHeader from './ElfHeader';
-import ElfLogger from './elf-logger';
+import ElfLogger from '../Debug/elf-logger';
 import ShowUserInfo from './ShowUserInfo';
 import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
 import numbersInit from './numbers-data';
 import ShowNewGist from './ShowNewGist';
 import ShowNotifications from './ShowNotifications';
-import '../css/menu.css';//i think this is where we put it.
 import {
     BrowserRouter as Router,
     Route
@@ -41,7 +40,7 @@ class DataMaven extends Component {
 
     fetchGist = (event) => {
         const that = this;
-        fetch('/api/gist-test')
+        fetch('/gitapi/gist/create')
             .then(function (response) {
                 return response.json();
             }).then(function (json) {
@@ -58,7 +57,7 @@ class DataMaven extends Component {
 
     fetchNotifications = (event) => {
         const that = this;
-        fetch('/api/Notifications')
+        fetch('/gitapi/notifications')
             .then(function (response) {
                 return response.json();
             }).then(function (json) {
@@ -75,7 +74,7 @@ class DataMaven extends Component {
 
     fetchUser = (event) => {
         const that = this;
-        fetch('/api/user')
+        fetch('/gitapi/user')
             .then(function (response) {
                 return response.json();
             }).then(function (json) {
@@ -97,7 +96,8 @@ class DataMaven extends Component {
                     <ElfHeader/>
 
                     <Route exact path="/" render={(props) => (
-                        <ShowUserInfo {...props} gitUser={this.state.gitUser}
+                        <ShowUserInfo {...props}
+                                      gitUser={this.state.gitUser}
                                       fields={fieldDefinitions}
                                       onChange={this.fetchUser}/>
                     )}/>
@@ -105,7 +105,7 @@ class DataMaven extends Component {
                         <ShowNewGist {...props} gitGist={this.state.gitGist}
                                       onChange={this.fetchGist}/>
                     )}/>
-                    <Route path="/get-Notifications" render={(props) => (
+                    <Route path="/get-notifications" render={(props) => (
                         <ShowNotifications {...props} gitNotifications={this.state.gitNotifications}
                                      onChange={this.fetchNotifications}/>
                     )}/>

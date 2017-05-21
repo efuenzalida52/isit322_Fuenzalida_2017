@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../css/menu.css';//i think this is where we put it.
+import '../css/menu.css';
 import logo from '../images/International_Pokémon_logo.svg';
 import {
     Link

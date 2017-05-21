@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../css/App.css';
-import ElfLogger from './elf-logger';
+import ElfLogger from '../Debug/elf-logger';
 import ElfElements from './ElfElements';
 const logger = new ElfLogger(false);
 

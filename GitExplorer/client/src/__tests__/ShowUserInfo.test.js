@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {mount} from 'enzyme';
 import ShowUserInfo from '../components/ShowUserInfo';
 import fieldDefinitions from '../components/field-definitions';
-import ElfDebug from '../ElfDebug';
-const elfDebug = new ElfDebug(false);
+import ElfDebugEnzyme from '../Debug/ElfDebugEnzyme';
+const elfDebugEnzyme = new ElfDebugEnzyme(false, 'GistLister.test.js');
 
 describe('Show User Info mount Test', function() {
 
@@ -36,7 +36,7 @@ describe('Show User Info mount Test', function() {
             }}
         />);
         const nineSign = <p className='ElfFormParagraph' id='login'>login-unknown</p>;
-        elfDebug.getFirst(wrapper, 'p');
+        elfDebugEnzyme.getFirst(wrapper, 'p');
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 });

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GetUserInfo from '../components/GetUserInfo';
 import {mount} from 'enzyme';
-import ElfDebug from '../ElfDebug';
-const elfDebug = new ElfDebug(true);
+import ElfDebugEnzyme from '../Debug/ElfDebugEnzyme';
+const elfDebugEnzyme = new ElfDebugEnzyme(false, 'GistLister.test.js');
 
 describe('My Get User Info Test', function() {
 
@@ -15,7 +15,7 @@ describe('My Get User Info Test', function() {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className='ElfFormParagraph' id='avatar_url'>aiunknown</p>;
         console.log(nineSign);
-        elfDebug.getFirst(wrapper, 'p');
+        elfDebugEnzyme.getFirst(wrapper, 'p');
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 
@@ -23,7 +23,7 @@ describe('My Get User Info Test', function() {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className='ElfFormParagraph' id='login'>login-unknown</p>;
         console.log(nineSign);
-        elfDebug.getFirst(wrapper, 'p');
+        elfDebugEnzyme.getFirst(wrapper, 'p');
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 
