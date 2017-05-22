@@ -11,12 +11,13 @@ class ElfHeader extends Component {
     render() {
         return (
             <div className='App'>
-                <ul>
+                <ul className="elfmenu">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/get-gist'>Gist</Link></li>
                     <li><Link to='/get-foo'>Foo</Link></li>
                     <li><Link to='/get-numbers'>Numbers</Link></li>
                     <li><Link to='/get-notifications'>Notifications</Link></li>
+                    <li><Link to='/get-gist-list'>Gist List</Link></li>
                 </ul>
 
                 <div className='App-header'>

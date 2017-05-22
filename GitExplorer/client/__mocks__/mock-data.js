@@ -1,6 +1,3 @@
-/**
- * Created by bcuser on 4/18/17.
- */
 const getData = (url) => {
     switch (url) {
         case '/foo':

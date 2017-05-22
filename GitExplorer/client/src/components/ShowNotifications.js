@@ -15,7 +15,7 @@ class ShowNewGist extends Component {
         return (
             <div>
                 <pre> {JSON.stringify(this.props.gitNotifications, null, 4)} </pre>
-                <button className='getNotifications' onClick={this.props.onChange}>Get Notifications</button>
+                <button className='gistLister' onClick={this.props.onChange}>Get Notifications</button>
             </div>
         );
     }

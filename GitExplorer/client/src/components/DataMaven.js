@@ -14,6 +14,7 @@ import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
+import GistLister from "./GistLister";
 
 const logger = new ElfLogger(false);
 
@@ -28,11 +29,11 @@ class DataMaven extends Component {
         this.state = {
             gitUser: tempGitUser,
             gitGist: {
-                'name':'you',
-                'url':'are'
+                'name': 'you',
+                'url': 'are'
             },
             gitNotifications: {
-                'The Notifications':'are...'
+                'The Notifications': 'are...'
             }
         };
         logger.log('GetUserInfo constructor called.')
@@ -41,14 +42,14 @@ class DataMaven extends Component {
     fetchGist = (event) => {
         const that = this;
         fetch('/gitapi/gist/create')
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
-            }).then(function (json) {
+            }).then(function(json) {
             logger.log('parsed json', json);
             that.setState({
                 gitGist: json.result
             });
-        }).catch(function (ex) {
+        }).catch(function(ex) {
             // DISPLAY WITH LOGGER
             logger.log('parsing failed ', ex);
         });
@@ -58,14 +59,14 @@ class DataMaven extends Component {
     fetchNotifications = (event) => {
         const that = this;
         fetch('/gitapi/notifications')
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
-            }).then(function (json) {
+            }).then(function(json) {
             logger.log('parsed json', json);
             that.setState({
                 gitNotifications: json
             });
-        }).catch(function (ex) {
+        }).catch(function(ex) {
             // DISPLAY WITH LOGGER
             logger.log('parsing failed ', ex);
         });
@@ -75,15 +76,32 @@ class DataMaven extends Component {
     fetchUser = (event) => {
         const that = this;
         fetch('/gitapi/user')
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
-            }).then(function (json) {
+            }).then(function(json) {
             console.log('parsed json', json);
             that.setState(foo => (json));
             let body = JSON.parse(json.body);
             that.setState({gitUser: body});
-        }).catch(function (ex) {
+        }).catch(function(ex) {
             console.log('parsing failed', ex);
+        });
+        event.preventDefault();
+    };
+
+    fetchGistList = (event) => {
+        const that = this;
+        fetch('/gitapi/gist/get-basic-list')
+            .then(function(response) {
+                return response.json();
+            }).then(function(json) {
+            logger.log('parsed json', json);
+            that.setState({
+                gistLister: json
+            });
+        }).catch(function(ex) {
+            // DISPLAY WITH LOGGER
+            logger.log('parsing failed ', ex);
         });
         event.preventDefault();
     };
@@ -103,17 +121,20 @@ class DataMaven extends Component {
                     )}/>
                     <Route path="/get-gist" render={(props) => (
                         <ShowNewGist {...props} gitGist={this.state.gitGist}
-                                      onChange={this.fetchGist}/>
+                                     onChange={this.fetchGist}/>
                     )}/>
                     <Route path="/get-notifications" render={(props) => (
                         <ShowNotifications {...props} gitNotifications={this.state.gitNotifications}
-                                     onChange={this.fetchNotifications}/>
+                                           onChange={this.fetchNotifications}/>
                     )}/>
                     <Route path="/get-foo" component={GetFoo}/>
                     <Route path="/get-numbers" render={(props) => (
                         <SmallNumbers {...props} numbers={numbersInit}/>
                     )}/>
-
+                    <Route path="/get-gist-list" render={(props) => (
+                        <GistLister {...props} gistLister={this.state.gistLister}
+                                    onChange={this.fetchGistList}/>
+                    )}/>
                 </div>
             </Router>
         );
