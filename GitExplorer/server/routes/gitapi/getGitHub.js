@@ -1,16 +1,14 @@
 let GitHub = require('github-api');
-
 let getGitHub = function() {
     let gh;
-    if (true) {
+    // GitHub Token with Gist permissions
+    let gitToken = process.env.GHTOKEN;
+    if (gitToken !== undefined && gitToken !== '') {
         gh = new GitHub({
-            token: process.env.TOKEN
+            token: gitToken
         });
     } else {
-        gh = new GitHub({
-            username: 'charliecalvert',
-            password: ''
-        });
+        throw ('Need valid GHTOKEN definition! Please export GHTOKEN=[TOKEN HERE]');
     }
     return gh;
 };

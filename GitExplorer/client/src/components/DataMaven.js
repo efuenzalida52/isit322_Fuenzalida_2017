@@ -28,15 +28,27 @@ class DataMaven extends Component {
 
         this.state = {
             gitUser: tempGitUser,
-            gitGist: {
+            gitGists: {
                 'name': 'you',
                 'url': 'are'
             },
             gitNotifications: {
                 'The Notifications': 'are...'
-            }
+            },
+            gistList: [{
+                avatarUrl: '/',
+                createdAt: 'Created At',
+                description: 'Description',
+                gitPullUrl: 'Git Pull URL',
+                htmlUrl: 'HTML URL',
+                id: 'ID',
+                ownerLogin: 'Owner Login',
+                updatedAt: 'Updated At',
+                url: 'URL'
+            }],
+            gistIterate: false
         };
-        logger.log('GetUserInfo constructor called.')
+        logger.log('GetUserInfo constructor called.');
     }
 
     fetchGist = (event) => {
@@ -97,7 +109,8 @@ class DataMaven extends Component {
             }).then(function(json) {
             logger.log('parsed json', json);
             that.setState({
-                gistLister: json
+                gistList: json.result,
+                gistIterate: true
             });
         }).catch(function(ex) {
             // DISPLAY WITH LOGGER
@@ -132,8 +145,10 @@ class DataMaven extends Component {
                         <SmallNumbers {...props} numbers={numbersInit}/>
                     )}/>
                     <Route path="/get-gist-list" render={(props) => (
-                        <GistLister {...props} gistLister={this.state.gistLister}
-                                    onChange={this.fetchGistList}/>
+                        <GistLister {...props} gistList={this.state.gistList}
+                                    onChange={this.fetchGistList}
+                                    gistIterate={this.state.gistIterate}
+                        />
                     )}/>
                 </div>
             </Router>

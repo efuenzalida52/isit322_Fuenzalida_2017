@@ -1,42 +1,34 @@
 let express = require('express');
 let router = express.Router();
+const ElfLogger = require('../../elf-logger');
+const logger = new ElfLogger('gist');
 let auth = require('../getGitHub');
 
-router.get('/', (req, res) => {
-
-    let me = auth().getUser();
-    me.listGists((err, gists) => {
-        if (!err) {
-            res.status(200).json(gists);
-        } else {
-            res.status(500).json(err);
-        }
+router.get('/', function(request, response) {
+    const me = auth().getUser();
+    me.listGists()
+        .then(function({data}) {
+            logger.log('USER PROMISE', data);
+            response.status(200).json({
+                count: data.length,
+                result: data.map((gist) => {
+                    return {
+                        'avatarUrl': gist.owner.avatar_url,
+                        'createdAt': gist.created_at,
+                        'description': gist.description,
+                        'gitPullUrl': gist.git_pull_url,
+                        'htmlUrl': gist.html_url,
+                        'id': gist.owner.id,
+                        'ownerLogin': gist.owner.login,
+                        'updatedAt': gist.updated_at,
+                        'url': gist.url
+                    };
+                })
+            });
+        }).catch((err) => {
+        logger.log('USER Promise Rejected', err);
+        response.status(500).send({'result': err});
     });
-
 });
-
-// router.get('/', (req, res) => {
-//     const me = auth().getUser();
-//     me.listGists()
-//         .then(function({data}) {
-//             console.log('USER PROMISE', data);
-//             const results = data.map((gist) => {
-//                 return {
-//                     description: gist.description,
-//                     git_pull_url: gist.git_pull_url,
-//                     html_url: gist.html_url,
-//                     id: gist.id,
-//                     url: gist.url
-//                 }
-//             });
-//             res.status(200).send({
-//                 'count': results.length,
-//                 'result': results
-//             });
-//         }).catch(function(err) {
-//         console.log('USER Promise Rejected', err);
-//         res.status(500).send({'result': err});
-//     });
-// });
 
 module.exports = router;

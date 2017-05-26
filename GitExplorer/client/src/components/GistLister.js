@@ -6,6 +6,7 @@ const logger = new ElfLogger('gist-lister');
 class GistLister extends Component {
     constructor(props) {
         super(props);
+        this.state = {listIndex: 0};
         logger.log('GistLister Constructor');
     }
 
@@ -13,21 +14,24 @@ class GistLister extends Component {
 
         console.log('Generate');
 
-        if (this.props.gistLister) {
-            console.log(this.props.gistLister);
-            return this.props.gistLister.map((element, index) => {
-                return (
+        if (this.props.gistList) {
+            console.log(this.props.gistList);
+            return (
+                <div>
                     <ul>
-                        <li>created_at: {element.created_at}</li>
-                        <li>description: {element.description}</li>
-                        <li>git_pull_url: {element.git_pull_url}</li>
-                        <li>html_url: {element.html_url}</li>
-                        <li>id: {element.id}</li>
-                        <li>updated_at: {element.url}</li>
-                        <li>url: 'URL'</li>
+                        <li>Index: {this.state.listIndex} / {this.props.gistList.length - 1}</li>
+                        <li>{this.props.gistList[this.state.listIndex].createdAt}</li>
+                        <li>{this.props.gistList[this.state.listIndex].description}</li>
+                        <li>{this.props.gistList[this.state.listIndex].gitPullUrl}</li>
+                        <li>{this.props.gistList[this.state.listIndex].htmlUrl}</li>
+                        <li>{this.props.gistList[this.state.listIndex].id}</li>
+                        <li>{this.props.gistList[this.state.listIndex].ownerLogin}</li>
+                        <li>{this.props.gistList[this.state.listIndex].updatedAt}</li>
+                        <li>{this.props.gistList[this.state.listIndex].url}</li>
                     </ul>
-                )
-            });
+                    <img src={this.props.gistList[this.state.listIndex].avatarUrl} alt='Avatar'/>
+                </div>
+            );
         } else {
             return <h2>No Data</h2>
         }
@@ -38,8 +42,22 @@ class GistLister extends Component {
         return (
             <div>
                 <h2>Gist Lister</h2>
+                <button
+                    id='gistLister'
+                    onClick={this.props.onChange}
+                    disabled={this.props.gistIterate}>Get Gists
+                </button>
+                <button
+                    id='prevGist'
+                    onClick={this.gistIterator}
+                    disabled={!this.props.gistIterate}>Previous Gist
+                </button>
+                <button
+                    id='nextGist'
+                    onClick={this.gistIterator}
+                    disabled={!this.props.gistIterate}>Next Gist
+                </button>
                 <div>{this.generateDisplay()}</div>
-                <button className='' onClick={this.props.onChange}>Get List</button>
             </div>
         );
     }
