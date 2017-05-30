@@ -38,6 +38,25 @@ class GistLister extends Component {
 
     };
 
+    gistIterator = (event) => {
+        logger.log(event.target.id);
+        if (event.target.id === 'nextGist') {
+            logger.log('nextGist Called');
+            this.setState((prevState, props) => {
+                if (prevState.listIndex < props.gistList.length - 1) {
+                    return {listIndex: prevState.listIndex + 1};
+                }
+            });
+        } else {
+            logger.log('prevGist Called');
+            this.setState((prevState, props) => {
+                if (prevState.listIndex > 0) {
+                    return {listIndex: prevState.listIndex - 1};
+                }
+            });
+        }
+    };
+
     render() {
         return (
             <div>
@@ -61,6 +80,7 @@ class GistLister extends Component {
             </div>
         );
     }
+
 }
 
 export default GistLister;
