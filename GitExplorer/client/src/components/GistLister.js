@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import ElfLogger from '../Debug/elf-logger';
 const logger = new ElfLogger('gist-lister');
+import { Button } from 'react-bootstrap';
 
 class GistLister extends Component {
     constructor(props) {
@@ -61,21 +62,24 @@ class GistLister extends Component {
         return (
             <div>
                 <h2>Gist Lister</h2>
-                <button
+                <Button
+                    bsStyle='primary'
                     id='gistLister'
                     onClick={this.props.onChange}
                     disabled={this.props.gistIterate}>Get Gists
-                </button>
-                <button
+                </Button>
+                <Button
+                    bsStyle='primary'
                     id='prevGist'
                     onClick={this.gistIterator}
                     disabled={!this.props.gistIterate}>Previous Gist
-                </button>
-                <button
+                </Button>
+                <Button
+                    bsStyle='primary'
                     id='nextGist'
                     onClick={this.gistIterator}
                     disabled={!this.props.gistIterate}>Next Gist
-                </button>
+                </Button>
                 <div>{this.generateDisplay()}</div>
             </div>
         );

@@ -10,6 +10,7 @@ import SmallNumbers from './SmallNumbers';
 import numbersInit from './numbers-data';
 import ShowNewGist from './ShowNewGist';
 import ShowNotifications from './ShowNotifications';
+import ElfMenu from './ElfMenu';
 import {
     BrowserRouter as Router,
     Route
@@ -122,35 +123,37 @@ class DataMaven extends Component {
     render() {
         return (
             <Router>
-
-                <div className="container">
-
-                    <ElfHeader/>
-
-                    <Route exact path="/" render={(props) => (
-                        <ShowUserInfo {...props}
-                                      gitUser={this.state.gitUser}
-                                      fields={fieldDefinitions}
-                                      onChange={this.fetchUser}/>
-                    )}/>
-                    <Route path="/get-gist" render={(props) => (
-                        <ShowNewGist {...props} gitGist={this.state.gitGist}
-                                     onChange={this.fetchGist}/>
-                    )}/>
-                    <Route path="/get-notifications" render={(props) => (
-                        <ShowNotifications {...props} gitNotifications={this.state.gitNotifications}
-                                           onChange={this.fetchNotifications}/>
-                    )}/>
-                    <Route path="/get-foo" component={GetFoo}/>
-                    <Route path="/get-numbers" render={(props) => (
-                        <SmallNumbers {...props} numbers={numbersInit}/>
-                    )}/>
-                    <Route path="/get-gist-list" render={(props) => (
-                        <GistLister {...props} gistList={this.state.gistList}
-                                    onChange={this.fetchGistList}
-                                    gistIterate={this.state.gistIterate}
-                        />
-                    )}/>
+                <div className='App'>
+                    <div className='container-fluid App-header'>
+                        <ElfMenu/>
+                        <ElfHeader/>
+                    </div>
+                    <div className='container-fluid'>
+                        <Route exact path="/" render={(props) => (
+                            <ShowUserInfo {...props}
+                                          gitUser={this.state.gitUser}
+                                          fields={fieldDefinitions}
+                                          onChange={this.fetchUser}/>
+                        )}/>
+                        <Route path="/get-gist" render={(props) => (
+                            <ShowNewGist {...props} gitGist={this.state.gitGist}
+                                         onChange={this.fetchGist}/>
+                        )}/>
+                        <Route path="/get-notifications" render={(props) => (
+                            <ShowNotifications {...props} gitNotifications={this.state.gitNotifications}
+                                               onChange={this.fetchNotifications}/>
+                        )}/>
+                        <Route path="/get-foo" component={GetFoo}/>
+                        <Route path="/get-numbers" render={(props) => (
+                            <SmallNumbers {...props} numbers={numbersInit}/>
+                        )}/>
+                        <Route path="/get-gist-list" render={(props) => (
+                            <GistLister {...props} gistList={this.state.gistList}
+                                        onChange={this.fetchGistList}
+                                        gistIterate={this.state.gistIterate}
+                            />
+                        )}/>
+                    </div>
                 </div>
             </Router>
         );

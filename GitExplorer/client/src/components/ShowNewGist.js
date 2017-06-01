@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import ElfLogger from '../Debug/elf-logger';
 const logger = new ElfLogger(false);
+import { Button } from 'react-bootstrap';
 
 class ShowNewGist extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class ShowNewGist extends Component {
                     return <h1> {name} : {value} </h1>;
                 })}*/}
                 <pre> {JSON.stringify(this.props.gitGist, null, 4)} </pre>
-                <button className='getUser' onClick={this.props.onChange}>Get Gist</button>
+                <Button bsStyle='primary' id='getUser' onClick={this.props.onChange}>Get Gist</Button>
             </div>
         );
     }

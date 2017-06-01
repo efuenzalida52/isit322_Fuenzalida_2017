@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
+import { Button } from 'react-bootstrap';
 
 class GetFoo extends Component {
     constructor() {
@@ -30,14 +31,14 @@ class GetFoo extends Component {
     render() {
         return (
             <div className="App">
-                <p className="App-intro">
+                <p>
                     state.foo {this.state.foo}
                 </p>
-                <p className="App-intro">
+                <p>
                     state.file {this.state.file}
                 </p>
 
-                <button className="getFoo" onClick={this.getFoo}>Click Get Foo</button>
+                <Button bsStyle='primary' id="getFoo" onClick={this.getFoo}>Click Get Foo</Button>
 
             </div>
         );

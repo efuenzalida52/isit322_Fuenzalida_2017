@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import ElfLogger from '../Debug/elf-logger';
 import ElfElements from './ElfElements';
+import { Button } from 'react-bootstrap';
 const logger = new ElfLogger(false);
+
 
 class ShowUserInfo extends Component {
     constructor(props) {
@@ -24,14 +26,13 @@ class ShowUserInfo extends Component {
     };
 
     render() {
-
         return (
             <form className="Form">{
                 this.props.fields.map((field, index) => {
                     return this.getForm(field, index)
                 })
             }
-                <button id="getUser" onClick={this.props.onChange}>Get User</button>
+                <Button bsStyle='primary' id="getUser" onClick={this.props.onChange}>Get User</Button>
             </form>
         )
     }
