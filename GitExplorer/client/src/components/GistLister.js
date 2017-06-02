@@ -50,7 +50,7 @@ class GistLister extends Component {
             });
         } else {
             logger.log('prevGist Called');
-            this.setState((prevState, props) => {
+            this.setState((prevState) => {
                 if (prevState.listIndex > 0) {
                     return {listIndex: prevState.listIndex - 1};
                 }
