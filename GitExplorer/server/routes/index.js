@@ -5,7 +5,7 @@ let router = express.Router();
 router.get('/', function(req, res, next) {
     'use strict';
     res.render('index', {title: 'server'});
-    //res.sendfile(index.html);
+    res.sendfile(index.html);
 });
 
 router.use('/foo', require('./foo'));
