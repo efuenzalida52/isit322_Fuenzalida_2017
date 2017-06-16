@@ -17,6 +17,7 @@ class ElfMenu extends Component {
                     <Nav>
                         <LinkContainer to='/'><NavItem>Get Git User</NavItem></LinkContainer>
                         <LinkContainer to='/get-foo'><NavItem>Get Foo</NavItem></LinkContainer>
+                        <LinkContainer to='/get-you-rang'><NavItem>Get Rang</NavItem></LinkContainer>
                         <LinkContainer to='/get-numbers'><NavItem>Numbers</NavItem></LinkContainer>
                         <NavDropdown title='Gists' id='basic-nav-gist'>
                             <MenuItem href='/get-gist'>Insert New Gist</MenuItem>

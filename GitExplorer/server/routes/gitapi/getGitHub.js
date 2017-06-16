@@ -1,4 +1,4 @@
-let GitHub = require('github-api');
+//let GitHub = require('github-api');
 let getGitHub = function() {
     let gh;
     // GitHub Token with Gist permissions

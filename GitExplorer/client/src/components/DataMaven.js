@@ -10,6 +10,7 @@ import SmallNumbers from './SmallNumbers';
 import numbersInit from './numbers-data';
 import ShowNewGist from './ShowNewGist';
 import ShowNotifications from './ShowNotifications';
+import GetYouRang from './GetYouRang';
 import ElfMenu from './ElfMenu';
 import {
     BrowserRouter as Router,
@@ -144,6 +145,7 @@ class DataMaven extends Component {
                                                onChange={this.fetchNotifications}/>
                         )}/>
                         <Route path="/get-foo" component={GetFoo}/>
+                        <Route path="/get-you-rang" component={GetYouRang}/>
                         <Route path="/get-numbers" render={(props) => (
                             <SmallNumbers {...props} numbers={numbersInit}/>
                         )}/>

@@ -3,6 +3,7 @@ let router = express.Router();
 let request = require('request');
 
 router.get('/', function(req, res, next) {
+    console.log('USER CALLED');
     let options = {
         url: 'https://api.github.com/users/efuenzalida52',
         headers: {

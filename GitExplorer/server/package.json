@@ -5,8 +5,14 @@
   "scripts": {
     "test-karma": "karma start",
     "test": "REACT_APP_ELF_LOGGER='gitapi-gists' nodemon jasmine-runner.js",
-    "start": "nodemon ./bin/www"
-  },
+    "start": "nodemon ./bin/www",
+ "all":"concurrently 'node ./bin/www' 'npm run qux' 'npm run gist' 'npm run markdown' 'npm run git-user'",
+     "qux": "node ../micros/qux/bin/www",
+	"gist": "node ../micros/gist/bin/www",
+"markdown": "node ../micros/markdown/bin/www",
+"git-user": "node ../micros/git-user/bin/www",
+"git-socket": "node ../micros/git-socket/bin/www"
+ },
   "dependencies": {
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
