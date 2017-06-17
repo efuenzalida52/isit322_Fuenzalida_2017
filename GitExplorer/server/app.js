@@ -5,9 +5,12 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-//let gitApi = require('./routes/gitapi/');
-let user = require('./routes/gitapi/user');
 let index = require('./routes/index');
+let user = require('./routes/gitapi/user');
+let gitHub = require('./routes/gitapi/getGitHub');
+let notifications = require('./routes/gitapi/notifications');
+let gist = require('./routes/gitapi/gist/index');
+
 let app = express();
 //let index = require('./routes/index');
 // uncomment after placing your favicon in /public
@@ -20,6 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/gitapi/user', user);
+app.use('/gitapi/getGitHub', gitHub);
+app.use('/gitapi/notifications', notifications);
+app.use('/gitapi/gist/index', gist);
 
 /*app.use((req, res, next) => {
     if (req.path.indexOf('/you-rang') > 0) {

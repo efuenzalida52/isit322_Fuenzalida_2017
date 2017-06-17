@@ -44,7 +44,7 @@ class GetYouRang extends Component {
                 <Button bsStyle='primary' id="qux/you-rang" onClick={this.getFoo}>Get qux Rang</Button>
                 <Button bsStyle='primary' id="markdown/you-rang" onClick={this.getFoo}>Get markdown Rang</Button>
                 <Button bsStyle='primary' id="git-user/you-rang" onClick={this.getFoo}>Get user Rang</Button>
-                
+
             </div>
         );
     }
