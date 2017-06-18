@@ -67,9 +67,11 @@ Date:   Fri Jun 16 22:52:10 2017 -0700
 ## Summary
 
 ```
-Assignments		95.59%
-Midterm	90%
-Final	90%
+Assignments		92.71%
+Midterm	95%
+Final	85%
 CP: 100
-Total 91.87%
+Total 91.58%
 ```
+
+That can be rouned to 92.
