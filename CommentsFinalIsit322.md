@@ -41,7 +41,7 @@ I don't think you ever sent me a link to your program running on Heroku. If I'm 
 
 ## Native
 
-After minor tweaking, this loads on my phone, but I get some redux related errors. Good start though. We needed to work on this longer.
+I don't think you got this working. Let me know if I'm wrong.
 
 ## Tests
 
