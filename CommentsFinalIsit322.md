@@ -26,6 +26,7 @@ You helped other students quite a bit. Please sit up closer in your next class. 
 - Redux
   - I don't see much Redux. If there is any, it is hard to find.
 
+The gists did work back in Week08. I remember. So I'll give you some credit for that.
 
 ## Micro Services
 
